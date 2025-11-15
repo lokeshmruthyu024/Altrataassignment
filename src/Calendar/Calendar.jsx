@@ -4,7 +4,7 @@ import styles from './Calendar.module.css';
 
 const DAYS_OF_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-const Calender = ({
+const Calendar = ({
   date: initialDate,
   onDateChange,
   interactive = false,
@@ -61,9 +61,9 @@ const Calender = ({
         )}
       </div>
 
-      <div className={styles.weekdays}>
+      <div className={styles.weekdays} role="row">
         {DAYS_OF_WEEK.map((d) => (
-          <div key={d} className={styles.weekday}>
+          <div key={d} className={styles.weekday} role="columnheader">
             {d}
           </div>
         ))}
@@ -71,7 +71,7 @@ const Calender = ({
 
       <div className={styles.weeks}>
         {weeks.map((week, i) => (
-          <div key={i} className={styles.week}>
+          <div key={i} className={styles.week} role="row">
             {week.map((day, j) => (
               <button
                 key={`${i}-${j}`}
@@ -80,6 +80,7 @@ const Calender = ({
                 className={`${styles.day} ${day === selectedDay ? styles.selected : ''
                   } ${day === null ? styles.empty : ''} ${isToday(day) ? styles.today : ''
                   }`}
+                role="gridcell"
               >
                 {day}
               </button>
@@ -91,4 +92,4 @@ const Calender = ({
   );
 };
 
-export default Calender;
+export default Calendar;

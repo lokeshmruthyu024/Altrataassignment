@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-import Calender from './Calender/Calender'
+import Calendar from './Calendar/Calendar';
 
 function App() {
   const [selected, setSelected] = useState(new Date());
@@ -29,7 +29,7 @@ function App() {
         <h2 style={{ margin: '0 0 0.5rem', color: '#34495e' }}>
           1. Static (prop-only)
         </h2>
-        <Calender date={new Date(2025, 10, 15)} />
+        <Calendar date={new Date(2025, 10, 15)} />
       </section>
       <section
         style={{
@@ -44,7 +44,7 @@ function App() {
         <p style={{ margin: '0 0 0.5rem', color: '#7f8c8d' }}>
           Selected: <strong>{selected.toDateString()}</strong>
         </p>
-        <Calender
+        <Calendar
           date={selected}
           onDateChange={setSelected}
           interactive={true}
